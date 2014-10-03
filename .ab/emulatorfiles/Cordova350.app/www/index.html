@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="grocery-app">
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <link href="ionic/css/ionic.css" rel="stylesheet">
+    <link href="style/main.css" rel="stylesheet">
+
+    <script src="cordova.js"></script>
+
+    <!--
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers.js"></script>
+-->
+
+    <!-- ionic/angularjs js -->
+    <script src="ionic/js/ionic.bundle.js"></script>
+
+ <script>
+        angular.module( "grocery-app", [ "ionic" ])
+            .controller( "GroceryController", function( $scope ) {
+            $scope.groceries = [
+                "Bananas", "Apples", "Oranges", "Milk", "Eggs", "Bread",
+                "Cereal", "Beef", "Napkins", "Cheese", "Peanut Butter"
+            ];
+        });
+    </script>
+</head>
+<body ng-controller="GroceryController">
+    <ion-header-bar class="bar-positive">
+        <h1 class="title">Groceries</h1>
+    </ion-header-bar>
+    <ion-content>
+        <ion-list>
+            <ion-item ng-repeat="grocery in groceries" item="grocery">
+                {{ grocery }}
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</body>
+</html>
